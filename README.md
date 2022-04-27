@@ -28,8 +28,8 @@ perintah di atas bertujuan untuk menginstall semua module yang ada di package.js
 shell
 npm start
 ```
-kemudian buka browser kalian dan akses localhost:3000
-<img src="/public/images/express.png">
+<br>kemudian buka browser kalian dan akses localhost:3000
+<img src="/public/images/express.png"><br>
 
 Kalau muncul tampilan seperti itu, maka aplikasi kalian sudah bisa diakses. Untuk menghentikan aplikasi yang sedang berjalan, maka masuk ke terminal dan masukkan kombinasi Ctrl+C
 
