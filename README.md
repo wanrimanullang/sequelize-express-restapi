@@ -292,5 +292,4 @@ router.delete('/:id', async function (req, res, next) {
 ```
 Setelah selesai, coba jalankan perintah npm start, jika aplikasi sudah berjalan maka restart aplikasi kemudian menggunakan aplikasi Postman akses menggunakan method DELETE dengan url localhost:3000/users/{id_user}. Pada body pilih raw dan JSON(application/json).
 
-
-
+https://medium.com/skyshidigital/membuat-restful-api-menggunakan-express-dan-sequelize-ef0e10da36ff
