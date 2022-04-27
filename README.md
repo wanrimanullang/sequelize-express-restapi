@@ -131,7 +131,10 @@ router.patch('/:id', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
 });
 module.exports = router;
+```
+
 Lalu di file app.js kita konfigurasi agar app.js bisa memanggil route users
+```javascript
 .................
 .....................
 .................
@@ -143,8 +146,11 @@ app.use('/users', users);
 ................
 ......................
 ................
+```
+
 Get All Users
 Tambahkan baris kode berikut pada file routes/users.js
+```javascript
 router.get('/', async function (req, res, next) {
   try {
     const users = await model.users.findAll({});
