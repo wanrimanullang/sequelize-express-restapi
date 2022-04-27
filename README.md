@@ -4,8 +4,7 @@
 Sebelum memulai membuat project, pastikan di laptop / komputer teman-teman sudah terinstall NodeJS dan NPM
 Pertama yang harus kita lakukan adalah menginstall secara global Express-generator dan Sequelize-cli. Kalian bisa juga menginstall modul express dan menyimpannya di package.json, namun menggunakan express-generator membuatnya agak lebih mudah.
 
-```
-shell
+```shell
 npm i -g express-generator sequelize-cli
 ```
 
@@ -13,19 +12,16 @@ npm i -g express-generator sequelize-cli
 Pertama, kita harus generate aplikasi yang ingin kita bangun
 
 ```
-shell
 express myapp
 ```
 Nah setelah menjalankan kode di atas, maka akan muncul folder myapp. Lalu kita masuk ke folder tersebut via terminal kemudian jalankan perintah
 ```
-shell
 npm install
 ```
 
 perintah di atas bertujuan untuk menginstall semua module yang ada di package.json.Nah sampai disini kalian sudah bisa menjalankan aplikasi yang sudah dibuat. Caranya dengan menuliskan perintah
 
 ```
-shell
 npm start
 ```
 <br>kemudian buka browser kalian dan akses localhost:3000<br>
@@ -36,20 +32,19 @@ Kalau muncul tampilan seperti itu, maka aplikasi kalian sudah bisa diakses. Untu
 ## Koneksi ke DB
 disini saya membuat database dengan postgres. kita akan coba untuk mengkoneksikan nya dengan database
 
-```shell
+```
 npm install sequelize mysql2 --save
 ```
 Perintah save di atas bertujuan untuk menyimpan modul yang kita pakai tadi ke file package.json
 Setelah itu, kita akan membuat direktori yang diperlukan untuk koneksi ke DB dengan perintah
 
-```shell
+```
 sequelize init
 ```
 Perintah di atas menghasilkan 4 folder, yaitu config, models, migrations, dan seeders.
 Untuk mengkonfigurasikan ke DB, bukalah file config/config.json. Disitu tertera 3 config ke DB, karena kita sedang di tahap development maka kita akan mengkonfigurasikan koneksi DB di config development.
 
-```
-javascript
+```javascript
   "development": {
     "username": " ", //username database
     "password": " ", //password database
@@ -62,15 +57,13 @@ javascript
 ## Membuat Models, dan Migrations
 Sebelum memulai membuat API Endpoint, kita harus membuat model sebagai penghubung aplikasi ke DB, buka terminal dan tuliskan perintah berikut
 
-```
-shell
+```shell
 sequelize model:create --name users --attributes name:string,email:string,phone_number:string,gender:boolean
 ```
 
 Perintah di atas akan men-generate file model di folder models dan file migration di folder migrations. Bukalah file migrations dan edit sesuai dengan kebutuhan kita
 
-```
-javascript
+```javascript
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
@@ -121,8 +114,7 @@ Setelah itu cek DB yang sudah kita buat, maka table users sudah terbuat.
 # Pembuatan Routes API
 Pertama kita buat terlebih dahulu file users.js di folder routes
 
-```
-javascript
+```javascript
 const express = require('express');
 const router = express.Router();
 const model = require('../models/index');
@@ -183,8 +175,7 @@ Setelah selesai, coba jalankan perintah npm start, kemudian menggunakan aplikasi
 ## Create User
 Tambahkan baris kode berikut pada file routes/users.js
 
-```
-javascript
+```javascript
 router.post('/', async function (req, res, next) {
   try {
     const {
@@ -221,8 +212,7 @@ Setelah selesai, coba jalankan perintah npm start, jika aplikasi sudah berjalan 
 ## Update User
 Tambahkan baris kode berikut pada file routes/users.js
 
-```
-javascript
+```javascript
 
 router.patch('/:id', async function (req, res, next) {
   try {
@@ -265,8 +255,7 @@ Setelah selesai, coba jalankan perintah npm start, jika aplikasi sudah berjalan 
 # Delete User
 Tambahkan baris kode berikut pada file routes/users.js
 
-```
-javascript
+```javascript
 
 router.delete('/:id', async function (req, res, next) {
   try {
